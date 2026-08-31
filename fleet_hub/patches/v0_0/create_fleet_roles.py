@@ -3,9 +3,6 @@ import frappe
 FLEET_ROLES = [
 	"Fleet Administrator",
 	"Fleet Manager",
-	"Fleet Operator",
-	"Maintenance Manager",
-	"Accounts User",
 	"Driver",
 ]
 
