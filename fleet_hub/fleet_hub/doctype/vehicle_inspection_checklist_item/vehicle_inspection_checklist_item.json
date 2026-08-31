@@ -1,0 +1,45 @@
+{
+ "doctype": "DocType",
+ "name": "Vehicle Inspection Checklist Item",
+ "module": "Fleet Hub",
+ "custom": 0,
+ "istable": 1,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 0,
+ "engine": "InnoDB",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "creation": "2026-08-28 00:00:00.000000",
+ "modified": "2026-08-28 00:00:00.000000",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Select",
+   "label": "Item",
+   "options": "Brakes\nTyres\nEngine\nLights\nBattery\nHorn\nMirrors\nSafety Equipment\nOther",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "label": "Condition",
+   "options": "Good\nFair\nPoor\nNot Applicable",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks",
+   "in_list_view": 1
+  }
+ ],
+ "permissions": [],
+ "links": [],
+ "states": [],
+ "actions": []
+}

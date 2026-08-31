@@ -155,23 +155,10 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"fleet_hub.tasks.all"
-# 	],
-# 	"daily": [
-# 		"fleet_hub.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"fleet_hub.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"fleet_hub.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"fleet_hub.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"daily": ["fleet_hub.tasks.daily"],
+	"weekly": ["fleet_hub.tasks.weekly"],
+}
 
 # Testing
 # -------
@@ -261,4 +248,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

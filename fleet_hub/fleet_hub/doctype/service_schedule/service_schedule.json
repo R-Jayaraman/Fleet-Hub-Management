@@ -1,0 +1,154 @@
+{
+ "doctype": "DocType",
+ "name": "Service Schedule",
+ "module": "Fleet Hub",
+ "custom": 0,
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "engine": "InnoDB",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "creation": "2026-08-28 00:00:00.000000",
+ "modified": "2026-08-28 00:00:00.000000",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "fields": [
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Fleet Vehicle",
+   "description": "Leave blank to use as a default template for the Vehicle Type"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "\nCar\nSUV\nVan\nTruck\nBus\nTwo Wheeler\nTrailer\nOther"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "label": "Service Type",
+   "options": "General Service\nOil Change\nTyre Rotation\nBrake Check\nBattery Check\nOther",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_break_sched_1",
+   "fieldtype": "Section Break",
+   "label": "Interval"
+  },
+  {
+   "fieldname": "interval_km",
+   "fieldtype": "Int",
+   "label": "Interval (km)"
+  },
+  {
+   "fieldname": "interval_days",
+   "fieldtype": "Int",
+   "label": "Interval (days)"
+  },
+  {
+   "fieldname": "section_break_sched_2",
+   "fieldtype": "Section Break",
+   "label": "Tracking (system-managed)"
+  },
+  {
+   "fieldname": "last_service_date",
+   "fieldtype": "Date",
+   "label": "Last Service Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_service_odometer",
+   "fieldtype": "Float",
+   "label": "Last Service Odometer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sched_1",
+   "fieldtype": "Column Break",
+   "label": null
+  },
+  {
+   "fieldname": "next_due_date",
+   "fieldtype": "Date",
+   "label": "Next Due Date",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "next_due_odometer",
+   "fieldtype": "Float",
+   "label": "Next Due Odometer",
+   "read_only": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Fleet Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Fleet Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "links": [
+  {
+   "group": "Maintenance",
+   "link_doctype": "Vehicle Maintenance",
+   "link_fieldname": "service_schedule"
+  }
+ ],
+ "states": [],
+ "actions": [],
+ "autoname": "SCHED-.#####"
+}

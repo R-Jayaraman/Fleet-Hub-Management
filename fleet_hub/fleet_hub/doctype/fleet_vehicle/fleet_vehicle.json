@@ -1,0 +1,297 @@
+{
+ "doctype": "DocType",
+ "name": "Fleet Vehicle",
+ "module": "Fleet Hub",
+ "custom": 0,
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "engine": "InnoDB",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "creation": "2026-08-28 00:00:00.000000",
+ "modified": "2026-08-28 00:00:00.000000",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "fields": [
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Registration Number",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "Car\nSUV\nVan\nTruck\nBus\nTwo Wheeler\nTrailer\nOther",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_veh_1",
+   "fieldtype": "Column Break",
+   "label": null
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make",
+   "reqd": 1
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "reqd": 1
+  },
+  {
+   "fieldname": "variant",
+   "fieldtype": "Data",
+   "label": "Variant"
+  },
+  {
+   "fieldname": "manufacturing_year",
+   "fieldtype": "Int",
+   "label": "Manufacturing Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_veh_1",
+   "fieldtype": "Section Break",
+   "label": "Identification"
+  },
+  {
+   "fieldname": "chassis_number",
+   "fieldtype": "Data",
+   "label": "Chassis Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "engine_number",
+   "fieldtype": "Data",
+   "label": "Engine Number"
+  },
+  {
+   "fieldname": "column_break_veh_2",
+   "fieldtype": "Column Break",
+   "label": null
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type",
+   "options": "Petrol\nDiesel\nCNG\nElectric\nHybrid\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "seating_capacity",
+   "fieldtype": "Int",
+   "label": "Seating Capacity"
+  },
+  {
+   "fieldname": "ownership_type",
+   "fieldtype": "Select",
+   "label": "Ownership Type",
+   "options": "Owned\nLeased\nRented\nFinanced",
+   "default": "Owned",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_veh_2",
+   "fieldtype": "Section Break",
+   "label": "Purchase Details"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "purchase_cost",
+   "fieldtype": "Currency",
+   "label": "Purchase Cost"
+  },
+  {
+   "fieldname": "column_break_veh_3",
+   "fieldtype": "Column Break",
+   "label": null
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "section_break_veh_3",
+   "fieldtype": "Section Break",
+   "label": "Live Status (system-managed)"
+  },
+  {
+   "fieldname": "current_status",
+   "fieldtype": "Select",
+   "label": "Current Status",
+   "options": "Available\nAssigned\nOn Trip\nUnder Maintenance\nInactive",
+   "default": "Available",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "current_driver",
+   "fieldtype": "Link",
+   "label": "Current Driver",
+   "options": "Fleet Driver",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_odometer",
+   "fieldtype": "Float",
+   "label": "Current Odometer",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location"
+  },
+  {
+   "fieldname": "column_break_veh_4",
+   "fieldtype": "Column Break",
+   "label": null
+  },
+  {
+   "fieldname": "insurance_expiry",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry (cached)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rc_expiry",
+   "fieldtype": "Date",
+   "label": "RC / Registration Expiry (cached)",
+   "read_only": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Fleet Administrator",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Fleet Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Driver",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "links": [
+  {
+   "group": "Operations",
+   "link_doctype": "Vehicle Assignment",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Operations",
+   "link_doctype": "Fleet Trip",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Fuel & Costs",
+   "link_doctype": "Fuel Log",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Fuel & Costs",
+   "link_doctype": "Vehicle Expense",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Maintenance",
+   "link_doctype": "Vehicle Maintenance",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Maintenance",
+   "link_doctype": "Service Schedule",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Compliance",
+   "link_doctype": "Vehicle Document",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Compliance",
+   "link_doctype": "Vehicle Inspection",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "group": "Alerts",
+   "link_doctype": "Fleet Alert Log",
+   "link_fieldname": "vehicle"
+  }
+ ],
+ "states": [],
+ "actions": [],
+ "autoname": "VEH-.#####",
+ "title_field": "registration_number",
+ "search_fields": "registration_number,make,model"
+}
