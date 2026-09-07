@@ -10,6 +10,7 @@ class FleetTrip(Document):
 		self.validate_datetimes()
 		self.calculate_distance()
 		self.update_vehicle_status_for_draft_states()
+		self.sync_stops_from_route()
 
 	def validate_vehicle_and_driver(self):
 		vehicle_status = frappe.db.get_value("Fleet Vehicle", self.vehicle, "current_status")
@@ -40,6 +41,21 @@ class FleetTrip(Document):
 	def calculate_distance(self):
 		if self.start_odometer and self.end_odometer:
 			self.distance = self.end_odometer - self.start_odometer
+
+	def sync_stops_from_route(self):
+		if not self.route:
+			self.set("stops", [])
+			return
+
+		route_stops = frappe.get_all(
+			"Route Stop",
+			filters={"parenttype": "Route", "parent": self.route},
+			fields=["location_name", "city", "address", "scheduled_time"],
+			order_by="idx",
+		)
+		self.set("stops", [])
+		for stop in route_stops:
+			self.append("stops", stop)
 
 	def update_vehicle_status_for_draft_states(self):
 		if self.status == "In Progress":

@@ -51,6 +51,20 @@
    "label": "Schedule"
   },
   {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "Route",
+   "description": "Optional. Selecting a route auto-fills Start Location and Destination below."
+  },
+  {
+   "fieldname": "trip_timing_slot",
+   "fieldtype": "Data",
+   "label": "Trip Timing Slot",
+   "fetch_from": "route.trip_timing_slot",
+   "read_only": 1
+  },
+  {
    "fieldname": "start_datetime",
    "fieldtype": "Datetime",
    "label": "Start Datetime",
@@ -59,7 +73,8 @@
   {
    "fieldname": "start_location",
    "fieldtype": "Data",
-   "label": "Start Location"
+   "label": "Start Location",
+   "fetch_from": "route.from_location"
   },
   {
    "fieldname": "start_odometer",
@@ -80,7 +95,8 @@
   {
    "fieldname": "destination",
    "fieldtype": "Data",
-   "label": "Destination"
+   "label": "Destination",
+   "fetch_from": "route.to_location"
   },
   {
    "fieldname": "end_odometer",
@@ -97,6 +113,48 @@
    "fieldname": "remarks",
    "fieldtype": "Small Text",
    "label": "Remarks"
+  },
+  {
+   "fieldname": "section_break_trip_3",
+   "fieldtype": "Section Break",
+   "label": "Trip Charges & Ops"
+  },
+  {
+   "fieldname": "trip_batta_amount",
+   "fieldtype": "Currency",
+   "label": "Trip Batta Amount",
+   "description": "Allowance paid to the driver for this trip."
+  },
+  {
+   "fieldname": "operational_incharge",
+   "fieldtype": "Link",
+   "label": "Operational Incharge",
+   "options": "User",
+   "description": "Dispatch/ops staff overseeing this trip, if different from the driver."
+  },
+  {
+   "fieldname": "column_break_trip_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contractor_name",
+   "fieldtype": "Data",
+   "label": "Contractor Name",
+   "description": "Fill in only if this trip uses a contracted/rented vehicle or driver."
+  },
+  {
+   "fieldname": "section_break_trip_2",
+   "fieldtype": "Section Break",
+   "label": "Route Stops",
+   "depends_on": "eval:doc.route"
+  },
+  {
+   "fieldname": "stops",
+   "fieldtype": "Table",
+   "label": "Stops",
+   "options": "Route Stop",
+   "read_only": 1,
+   "description": "Copied from the selected Route. Read-only here — edit the Route itself to change its stops."
   }
  ],
  "permissions": [
